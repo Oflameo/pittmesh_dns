@@ -1,0 +1,7 @@
+---
+- name: Install specific packages for build
+  apt: name=bind9 state=present
+  apt: name=bind9utils state=present
+  apt: name=openssl state=present
+  apt: name=openvpn state=present
+  apt: name=sysstat state=present

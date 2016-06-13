@@ -1,0 +1,7 @@
+---
+- name: Install base packages
+  apt: name=git state=present
+  apt: name=htop state=present
+  apt: name=rsync state=present
+  apt: name=vim state=present
+  apt: name=sysstat state=present
