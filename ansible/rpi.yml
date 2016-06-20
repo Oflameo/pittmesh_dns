@@ -1,0 +1,5 @@
+---
+- hosts: '{{hosts}}'
+  remote_user:  '{{user}}'
+  become: True
+  tasks:

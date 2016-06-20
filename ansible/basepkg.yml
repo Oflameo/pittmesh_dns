@@ -1,12 +1,32 @@
 ---
-- hosts: {{hosts}}
-  remote_user:  {{remote_user}}
-  sudo: True
-    tasks:
-    - name: Install base packages
+- hosts: '{{hosts}}'
+  remote_user:  '{{user}}'
+  become: True
+  tasks:
+    - name: Install git
       apt: name=git state=present
+    - name: Install htop
       apt: name=htop state=present
+    - name: Install rsync
       apt: name=rsync state=present
+    - name: Install vim
       apt: name=vim state=present
-      apt: name=sysstat state=present
+    - name: Install ansible
       apt: name=ansible state=present
+    - name: Install sysstat
+      apt: name=sysstat state=present
+    - name: Set sysstat program configuration
+      copy: 
+         src=template/sysstat/sysstat.conf
+         dest=/etc/sysstat/sysstat
+         owner=root group=root 
+    - name: Set sysstat cron configuration
+      copy: 
+          src=template/sysstat/cron.d.sysstat
+          dest=/etc/cron.d/sysstat
+          owner=root group=root
+    - name: Enable sysstat
+      copy: 
+          src=template/sysstat/default.sysstat
+          dest=/etc/default/sysstat
+          owner=root group=root
