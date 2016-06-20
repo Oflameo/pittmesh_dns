@@ -5,11 +5,19 @@
   tasks:
     - name: Update cache
       apt: update_cache=yes
-     - name: Install bind9
-       apt: name=bind9 state=present
-     - name: Install bind9utils
-       apt: name=bind9utils state=present
-     - name: Install openssl
-       apt: name=openssl state=present
-     - name: Install openvpn
-       apt: name=openvpn state=present
+    - name: Install bind9
+      apt: name=bind9 state=present
+    - name: Install bind9utils
+      apt: name=bind9utils state=present
+    - name: Install openssl
+      apt: name=openssl state=present
+    - name: Install openssl blacklist
+      apt: name=openssl-blacklist state=present
+    - name: Install openvpn
+      apt: name=openvpn state=present
+    - name: Install openvpn blacklist
+      apt: name=openvpn state=present
+    - name: Install openssh blacklist
+      apt: name=openssh-blacklist state=present
+    - name: Install olsrd
+      apt: name=olsrd state=present
