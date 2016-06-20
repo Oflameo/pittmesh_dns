@@ -17,6 +17,8 @@
       apt: name=ansible state=present
     - name: Install iptables persistant
       apt: name=iptables-persistent state=present
+    - name: Install sqlite3
+      apt: name=sqlite3 state=present
     - name: Install sysstat
       apt: name=sysstat state=present
     - name: Set sysstat program configuration
