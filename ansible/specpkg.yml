@@ -3,6 +3,8 @@
   remote_user: '{{user}}'
   become: True
   tasks:
+    - name: Update cache
+      apt: update_cache=yes
      - name: Install bind9
        apt: name=bind9 state=present
      - name: Install bind9utils

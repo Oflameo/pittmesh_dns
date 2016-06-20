@@ -3,6 +3,8 @@
   remote_user:  '{{user}}'
   become: True
   tasks:
+    - name: Update cache
+      apt: update_cache=yes
     - name: Install git
       apt: name=git state=present
     - name: Install htop
