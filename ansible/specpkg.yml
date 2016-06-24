@@ -21,3 +21,5 @@
       apt: name=openssh-blacklist state=present
     - name: Install olsrd
       apt: name=olsrd state=present
+    - name: Install ansible
+      apt: name=ansible state=present

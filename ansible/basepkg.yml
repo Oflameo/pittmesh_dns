@@ -13,8 +13,6 @@
       apt: name=rsync state=present
     - name: Install vim
       apt: name=vim state=present
-    - name: Install ansible
-      apt: name=ansible state=present
     - name: Install iptables persistant
       apt: name=iptables-persistent state=present
     - name: Install sqlite3
