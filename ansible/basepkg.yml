@@ -17,6 +17,10 @@
       apt: name=iptables-persistent state=present
     - name: Install sqlite3
       apt: name=sqlite3 state=present
+    - name: Install tmux
+      apt: name=tmux state=present
+    - name: Install apt-file
+      apt: name=apt-file state=present
     - name: Install sysstat
       apt: name=sysstat state=present
     - name: Set sysstat program configuration

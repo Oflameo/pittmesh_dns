@@ -23,3 +23,7 @@
       apt: name=olsrd state=present
     - name: Install ansible
       apt: name=ansible state=present
+    - name: Updade DNS database list
+      lineinfile: dest=/etc/
+    - name: Update DNS Database
+    - name: Reload DNS Database
