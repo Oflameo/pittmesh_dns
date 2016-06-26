@@ -1,3 +1,6 @@
+---
+- hosts: localhost
+- remote_user: root
     - name: Update DNS Database
       template: src=template/bind/db.pittmesh.j2
                 dest=/etc/bind/db.pittmesh
