@@ -1,0 +1,6 @@
+    - name: Update DNS Database
+      template: src=template/bind/db.pittmesh.j2
+                dest=/etc/bind/db.pittmesh
+    - name: Reload DNS Database
+      service: name=bind9
+               state=reloaded
