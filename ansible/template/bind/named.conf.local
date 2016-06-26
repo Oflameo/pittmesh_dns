@@ -6,7 +6,7 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-zone "255.in-addr.arpa" {
+zone "pittmesh" {
         type master;
         file "/etc/bind/db.pittmesh";
 };

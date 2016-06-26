@@ -1,13 +1,13 @@
 ;
 ; BIND data file for local loopback interface
 ;
-$TTL	604800
+$TTL	3600
 @	IN	SOA	localhost. root.localhost. (
-	 	    {{ serial }}	; Serial
-			 604800		; Refresh
-			  86400		; Retry
-			2419200		; Expire
-			 604800 )	; Negative Cache TTL
+	 	     {{ ansible_date_time.epoch }}  	; Serial
+			   3600		; Refresh
+			    900		; Retry
+		          86400 	; Expire
+			    900 )	; Negative Cache TTL
 ;
 @	IN	NS	localhost.
 @	IN	A	127.0.0.1

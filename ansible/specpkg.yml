@@ -23,7 +23,12 @@
       apt: name=olsrd state=present
     - name: Install ansible
       apt: name=ansible state=present
-    - name: Updade DNS database list
-      lineinfile: dest=/etc/
+    - name: Add DNS named.conf.local
+      copy: src=template/bind/named.conf.local
+            dest=/etc/bind/named.conf.local
     - name: Update DNS Database
+      template: src=template/bind/db.pittmesh.j2
+                dest=/etc/bind/db.pittmesh
     - name: Reload DNS Database
+      service: name=bind9
+               state=reloaded
