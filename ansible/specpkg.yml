@@ -29,6 +29,17 @@
     - name: Update DNS Database
       template: src=template/bind/db.pittmesh.j2
                 dest=/etc/bind/db.pittmesh
+    - name: Install database update cron job
+      copy: src=template/bind/cron.d.pmd
+            dest=/etc/cron.d/pmd
+            owner=root group=root
+    - name: Enable ansible logging
+      lineinfile: dest=/etc/ansible/ansible.cfg
+                  regexp="#log_path = /var/log/ansible.log"
+                  line="log_path = /var/log/ansible.log" 
+    - name: Enable ansible log rotation
+      copy: src=template/ansible/logrotate.d.ansible
+            dest=/etc/logrotate.d/ansible
     - name: Reload DNS Database
       service: name=bind9
                state=reloaded

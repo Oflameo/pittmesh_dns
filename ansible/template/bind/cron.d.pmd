@@ -1,0 +1,6 @@
+# Exports paths for program
+PATH=/usr/sbin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# This Program executes every hour
+# If the repository has been updated, it will use it update the dns database
+55 * * * * root ansible-pull -i "localhost," -U https://github.com/Oflameo/pittmesh_dns.git ansible/pmd-update.yml -o
