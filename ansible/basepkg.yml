@@ -38,3 +38,5 @@
           src=template/sysstat/default.sysstat
           dest=/etc/default/sysstat
           owner=root group=root
+    - name: Install snmpd
+      apt: name=snmpd state=present
