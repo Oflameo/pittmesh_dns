@@ -46,19 +46,19 @@ address to get your host added.
 The standard domain extension for all Pittmesh services are '.pittmesh'.
 Currently we don't have a Policy on subdomains.
 
-##OpenWRT Router Setup
+##OpenWrt Router Setup
 To setup a router to use a Pittmesh DNS server these conditions must
 be met.
 
 * Must be a DHCP server
 
-To configure a Openwrt router to use configure a dhcp client to use the
+To configure a OpenWrt router to use configure a dhcp client to use the
 Pittmesh DNS servers insert a configuration line with
 
 You must add a dhcp option to get DHCP clients on Pittmesh to use
 the correct DNS server.
 
-In openwrt you can add the DHCP option by inserting the following code 
+In OpenWrt you can add the DHCP option by inserting the following code 
 into `/etc/config/dhcp` at the end of the `config dnsmasq` configuration
 block similar to the following.
 
@@ -69,7 +69,7 @@ block similar to the following.
 * `6,10.10.220.20,10.123.237.147` is the dhcp option to tell the DHCP
 clients to look for a DNS server and the IP addresses for the DNS servers.
 
-To configure your OpenWRT router to use the Pittmesh DNS servers replace the 
+To configure your OpenWrt router to use the Pittmesh DNS servers replace the 
 `list server` options with the entries for the Pittmesh DNS servers.
 
     list server '10.10.220.20'
@@ -80,8 +80,13 @@ Clients simply need to get an IP address from the router and DNS will just work.
 
 ##Sources
 https://docs.ansible.com/ansible/playbooks.html
+
 https://docs.ansible.com/ansible/intro_inventory.html
+
 http://jinja.pocoo.org/
+
 https://wiki.debian.org/Bind9
+
 http://www.bind9.net/arm99.pdf
+
 https://wiki.openwrt.org/doc/howto/dhcp.dnsmasq
