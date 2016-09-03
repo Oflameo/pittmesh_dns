@@ -13,7 +13,10 @@ An example ansible playbook command you would run to is the following.
     ansible-playbook -e "user=root hosts=pmd0" basepkg.yml
 
 If there is a trust error whe using that command try logging into the target 
-and trying again after disconnecting.
+and trying again after disconnecting. If you don't know how to to write an 
+ansible inventory file go the link in the ansible inventory into in the
+sources section or 
+[click here](https://docs.ansible.com/ansible/intro_inventory.html).
 
 To get all of the software installed needed to run a Pittmesh DNS server
 can be provisioned by running playbooks `basepkg.yml` and `specpkg.yml`.
@@ -26,7 +29,7 @@ and started. The following commands must be ran with elevated permissions.
     systemctl start bind9
 
 After the DNS server is provisioned it will update itself every hour on the
-55 minuite by executing `pmd-update.yml` with ansible via cron by pulling
+55 minute by executing `pmd-update.yml` with ansible via cron by pulling
 down the target git repository, writing `template/bind/db.pittmesh.j2` to 
 `/etc/bind/db.pittmesh` and passing it through a jinja2 filter and reloading
 the bind9 DNS service. The jinja template is used to generate the serial
