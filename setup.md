@@ -39,7 +39,7 @@ DNS resource record updates will fail. The serial number is the epoch of
 the last time `pmd-update.yml` was run after there was a change to 
 `template/bind/db.pittmesh.j2` in the git repository.
 
-##Getting Resource Records added.
+##Getting Resource Records added
 To get resource records for your services on Pittmesh you can go about it
 in two ways. You could clone the repository, edit 
 `template/bind/db.pittmesh.j2` and send a pull request. You can also open 
