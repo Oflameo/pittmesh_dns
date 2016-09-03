@@ -19,31 +19,31 @@ can be provisioned by running playbooks `basepkg.yml` and `specpkg.yml`.
 
 The DNS service isn't enabled or started by default. If you are using
 systemd you can login and use the following to get the DNS service enabled
-and started. The following command must be ran with elevated permissions.
+and started. The following commands must be ran with elevated permissions.
 
     systemctl enable bind9
     systemctl start bind9
 
 After the DNS server is provisioned it will update itself every hour on the
 55 minuite by executing `pmd-update.yml` with ansible via cron by pulling
-down the target git repository, writing template/bind/db.pittmesh.j2 to 
-/etc/bind/db.pittmesh and passing it through a jinja2 filter and reloading
+down the target git repository, writing `template/bind/db.pittmesh.j2` to 
+`/etc/bind/db.pittmesh` and passing it through a jinja2 filter and reloading
 the bind9 DNS service. The jinja template is used to generate the serial
 number for the bind9 resource records for Pittmesh DNS so that the records
 are updated whenever they are changed. If the serial number isn't changed
 DNS resource record updates will fail. The serial number is the epoch of 
-the last time pmd-update.yml was run after there was a change to 
-template/bind/db.pittmesh.j2 in the git repository.
+the last time `pmd-update.yml` was run after there was a change to 
+`template/bind/db.pittmesh.j2` in the git repository.
 
 ##Getting Resource Records added.
 To get resource records for your services on Pittmesh you can go about it
 in two ways. You could clone the repository, edit 
-template/bind/db.pittmesh.j2 and send a pull request. You can also open 
+`template/bind/db.pittmesh.j2` and send a pull request. You can also open 
 an incident on Github for your the for your resources.
 You need to include at minimal your desired hostname and a valid Pittmesh IP
 address to get your host added.
 
-The standard domain extension for all Pittmesh services are '.pittmesh'.
+The standard domain extension for all Pittmesh services are `.pittmesh`.
 Currently we don't have a Policy on subdomains.
 
 ##OpenWrt Router Setup
