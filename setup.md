@@ -6,6 +6,7 @@ To use the Pittmesh DNS provision playbooks the target system has to be
 * Has access to Debian repositories
 * Host must be listed in ansible inventory file
 * Target host key must be trusted
+* Ansible 2.0 or later on provisioning host
 
 An example ansible playbook command you would run to is the following.
 
