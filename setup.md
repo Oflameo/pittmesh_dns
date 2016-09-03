@@ -14,9 +14,7 @@ An example ansible playbook command you would run to is the following.
 
 If there is a trust error whe using that command try logging into the target 
 and trying again after disconnecting. If you don't know how to to write an 
-ansible inventory file go the link in the ansible inventory into in the
-sources section or 
-[click here](https://docs.ansible.com/ansible/intro_inventory.html).
+ansible inventory file [click here](https://docs.ansible.com/ansible/intro_inventory.html).
 
 To get all of the software installed needed to run a Pittmesh DNS server
 can be provisioned by running playbooks `basepkg.yml` and `specpkg.yml`.
