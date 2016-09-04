@@ -91,4 +91,6 @@ https://wiki.debian.org/Bind9
 
 http://www.bind9.net/arm99.pdf
 
+https://tools.ietf.org/html/rfc1123
+
 https://wiki.openwrt.org/doc/howto/dhcp.dnsmasq
