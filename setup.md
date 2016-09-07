@@ -19,13 +19,6 @@ ansible inventory file [click here](https://docs.ansible.com/ansible/intro_inven
 To get all of the software installed needed to run a Pittmesh DNS server
 can be provisioned by running playbooks `basepkg.yml` and `specpkg.yml`.
 
-The DNS service isn't enabled or started by default. If you are using
-systemd you can login and use the following to get the DNS service enabled
-and started. The following commands must be ran with elevated permissions.
-
-    systemctl enable bind9
-    systemctl start bind9
-
 After the DNS server is provisioned it will update itself every hour on the
 55 minute by executing `pmd-update.yml` with ansible via cron by pulling
 down the target git repository, writing `template/bind/db.pittmesh.j2` to 
