@@ -51,3 +51,6 @@
     - name: Start DNS Service
       service: name=bind9
                state=started
+    - name: Restart Networking
+      service: name=networking
+               state=restarted
