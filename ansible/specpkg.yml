@@ -46,6 +46,6 @@
     - name: Enable DNS Database
       service: name=bind9
                enabled=yes
-    - name: Start DNS Database
+    - name: Start DNS Service
       service: name=bind9
                state=started
