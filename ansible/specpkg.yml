@@ -43,6 +43,8 @@
     - name: Use Localhost as resolver
       copy: src=template/resolvconf/resolvconf.conf
             dest=/etc/resolvconf.conf
+    - name: Update Resolver
+      command: /sbin/resolvconf -u
     - name: Enable DNS Database
       service: name=bind9
                enabled=yes
