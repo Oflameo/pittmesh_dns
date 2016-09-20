@@ -40,3 +40,9 @@
           owner=root group=root
     - name: Install snmpd
       apt: name=snmpd state=present
+    - name: Enable snmpd
+      service: name=snmpd
+               enabled=yes 
+    - name: Start snmpd
+      service: name=snmpd
+               state=started
