@@ -45,7 +45,7 @@
             dest=/etc/resolvconf.conf
     - name: Update Resolver
       command: /sbin/resolvconf -u
-    - name: Enable DNS Database
+    - name: Enable DNS Service
       service: name=bind9
                enabled=yes
     - name: Start DNS Service
