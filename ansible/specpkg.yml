@@ -11,14 +11,8 @@
       apt: name=bind9utils state=present
     - name: Install openssl
       apt: name=openssl state=present
-    - name: Install openssl blacklist
-      apt: name=openssl-blacklist state=present
     - name: Install openvpn
       apt: name=openvpn state=present
-    - name: Install openvpn blacklist
-      apt: name=openvpn state=present
-    - name: Install openssh blacklist
-      apt: name=openssh-blacklist state=present
     - name: Install olsrd
       apt: name=olsrd state=present
     - name: Install ansible
@@ -48,8 +42,6 @@
     - name: Enable DNS Service
       service: name=bind9
                enabled=yes
-    - name: Start DNS Service
-      service: name=bind9
                state=started
     - name: Restart Networking
       service: name=networking
