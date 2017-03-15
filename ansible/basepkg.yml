@@ -27,5 +27,6 @@
       service: name=snmpd
                state=started
     - name: Install gpsd
-      service: name=gpsd
-               state=started
+      apt: 
+        name: gpsd
+        state: present
