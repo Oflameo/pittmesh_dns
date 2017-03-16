@@ -1,0 +1,28 @@
+---
+- hosts: '{{hosts}}'
+  remote_user: '{{user}}'
+  become: True
+  tasks:
+    - name: Install ansible
+      apt: 
+         name: ansible 
+         state: present
+    - name: Add DNS named.conf.local
+      copy: 
+         src: template/bind/named.conf.local
+         dest: /etc/bind/named.conf.local
+    - name: Update DNS Database
+      template:
+         src: template/bind/db.pittmesh.j2
+         dest: /etc/bind/db.pittmesh
+    - name: Install database update cron job
+      copy:
+         src: template/bind/cron.d.pmd
+         dest: /etc/cron.d/pmd
+         owner: root 
+         group: root
+    - name: Enable DNS Service
+      service: 
+         name: bind9
+         enabled: yes
+         state: restarted
