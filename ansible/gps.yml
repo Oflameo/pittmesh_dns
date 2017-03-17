@@ -3,26 +3,37 @@
   remote_user: '{{user}}'
   become: True
   tasks:
-    - name: Install ansible
-      apt: 
-         name: ansible 
+    - name: Innstall PPS tools
+      apt:
+         name: pps-tools
          state: present
-    - name: Add DNS named.conf.local
-      copy: 
-         src: template/bind/named.conf.local
-         dest: /etc/bind/named.conf.local
-    - name: Update DNS Database
-      template:
-         src: template/bind/db.pittmesh.j2
-         dest: /etc/bind/db.pittmesh
-    - name: Install database update cron job
+    - name: Install gpsd
+      apt: 
+         name: gpsd
+         state: present
+    - name: Install gpsd-clients
+      apt:
+         name: gpsd-clients
+         state: present
+    - name: Install Default Config for GPSD
       copy:
-         src: template/bind/cron.d.pmd
-         dest: /etc/cron.d/pmd
+         src: template/default/gpsd
+         dest: /etc/default/gpsd
          owner: root 
          group: root
-    - name: Enable DNS Service
+    - name: Make NTPD pay attention to GPSD
+      copy:
+         src: template/ntp.conf
+         dest: /etc/ntp.conf
+         owner: root
+         group: root
+    - name: Restart NTPD
       service: 
-         name: bind9
+         name: ntp
+         enabled: yes
+         state: restarted
+    - name: Restart GPSD
+      service: 
+         name: gpsd
          enabled: yes
          state: restarted

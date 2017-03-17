@@ -5,28 +5,45 @@
   tasks:
     - name: Set sysstat program configuration
       copy: 
-         src=template/sysstat/sysstat.conf
-         dest=/etc/sysstat/sysstat
-         owner=root group=root 
+         src: template/sysstat/sysstat.conf
+         dest: /etc/sysstat/sysstat
+         owner: root 
+         group: root 
     - name: Set sysstat cron configuration
       copy: 
-          src=template/sysstat/cron.d.sysstat
-          dest=/etc/cron.d/sysstat
-          owner=root group=root
+          src: template/sysstat/cron.d.sysstat
+          dest: /etc/cron.d/sysstat
+          owner: root
+          group: root
     - name: Enable sysstat
       copy: 
-          src=template/sysstat/default.sysstat
-          dest=/etc/default/sysstat
-          owner=root group=root
+          src: template/sysstat/default.sysstat
+          dest: /etc/default/sysstat
+          owner: root
+          group: root
     - name: Install snmpd
-      apt: name=snmpd state=present
-    - name: Enable snmpd
-      service: name=snmpd
-               enabled=yes 
-    - name: Start snmpd
-      service: name=snmpd
-               state=started
-    - name: Install gpsd
       apt: 
-        name: gpsd
-        state: present
+         name: snmpd 
+         state: present
+    - name: Install ntpd
+      apt: 
+         name: ntp
+         state: present 
+    - name: Enable snmpd
+      service: 
+         name: snmpd
+         enabled: yes 
+         state: started
+    - name: Enable ntpd
+      service: 
+         name: ntp
+         enabled: yes 
+         state: started
+    - name: Copy Timezone file
+      copy: 
+         src: template/timezone
+         dest: /etc/timezone
+         owner: root
+         group: root
+    - name: Set Timezone
+      command: dpkg-reconfigure -f noninteractive tzdata
