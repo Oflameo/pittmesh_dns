@@ -1,6 +1,6 @@
-#Pittmesh DNS Server Setup
+# Pittmesh DNS Server Setup
 
-##Initial DNS Server Provisioning
+## Initial DNS Server Provisioning
 To use the Pittmesh DNS provision playbooks the target system has to be
 * Debian 8 or newer
 * Has access to Debian repositories
@@ -30,7 +30,7 @@ DNS resource record updates will fail. The serial number is the epoch of
 the last time `pmd-update.yml` was run after there was a change to 
 `template/bind/db.pittmesh.j2` in the git repository.
 
-##Getting Resource Records added
+## Getting Resource Records added
 To get resource records for your services on Pittmesh you can go about it
 in two ways. You could clone the repository, edit 
 `template/bind/db.pittmesh.j2` and send a pull request. You can also open 
@@ -41,7 +41,7 @@ address to get your host added.
 The standard domain extension for all Pittmesh services are `.pittmesh`.
 Currently we don't have a Policy on subdomains.
 
-##OpenWrt Router Setup
+## OpenWrt Router Setup
 To setup a router to use a Pittmesh DNS server these conditions must
 be met.
 
@@ -70,10 +70,10 @@ To configure your OpenWrt router to use the Pittmesh DNS servers replace the
     list server '10.10.220.20'
     list server '10.123.237.147'
 
-##Pittmesh Client Node Setup
+## Pittmesh Client Node Setup
 Clients simply need to get an IP address from the router and DNS will just work.
 
-##Sources
+## Sources
 https://docs.ansible.com/ansible/playbooks.html
 
 https://docs.ansible.com/ansible/intro_inventory.html
